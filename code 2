@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите первое число:");
+
+        System.out.println("Введите второе число:");
+
+        System.out.println("Введите третье число:");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        sc.close();
+        System.out.println("Числа которые вы ввели:");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+
+        if (a > b && a > c) {
+            System.out.println("Большее число:" + a);
+        } else if (b > a && b > c ) {
+            System.out.println("Большее число:" + b);
+        } else {
+            System.out.println("Больше число:"+ c);
+        }
+
+
+    }
+    }
