@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите одно четное и одно нечетное число :");
+        System.out.println();
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println("Числа которые вы ввели:"+a +"," +b);
+
+        if (a % 2 != 0) {
+            System.out.println("Число-" +a+ "нечетное");
+        }else if (b % 2 != 0) {
+            System.out.println("Число-" +b+ "нечетное");
+        }else {
+            System.out.println("Нет нечетных чисел");
+        }
+
+    }
+    }
