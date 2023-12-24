@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите число N: ");
+        int N = scanner.nextInt();
+
+        int a = 0;
+        int b = 1;
+        int c;
+
+        System.out.print("Числа Фибоначчи до " + N + ": ");
+        System.out.print(a + " " + b + " ");
+
+        while (true) {
+            c = a + b;
+            if (c > N) {
+                break;
+            }
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+    }
+}
