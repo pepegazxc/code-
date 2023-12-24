@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите первое число:");
+
+        System.out.println("Введите второе число:");
+
+        System.out.println("Введите третье число:");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        int max = Math.max(a, Math.max(b, c));
+        int min = Math.min(a, Math.min(b, c));
+        int middle = a + b + c - max - min;
+
+        if (a == b|| a == c || b == c) {
+            System.out.println("Ошибка: есть равные числа");
+        } else {
+            System.out.println("Среднее число: " + middle);
+        }
+    }
+}
