@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char[][] board = new char[10][10];
+
+        // Инициализация игрового поля
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                board[i][j] = ' ';
+            }
+        }
+
+        // Расстановка кораблей
+        placeShips(board, 5, "порт");
+        placeShips(board, 4, "кисти");
+        placeShips(board, 3, "перо");
+        placeShips(board, 3, "перо");
+        placeShips(board, 2, "палка");
+
+        // Игровой процесс
+        int shipsRemaining = 5;
+        while (shipsRemaining > 0) {
+            System.out.println("Введите координаты для атаки (например, A5): ");
+            String input = scanner.nextLine();
+            char rowChar = input.charAt(0);
+            int row = rowChar - 'A';
+            int col = Integer.parseInt(input.substring(1)) - 1;
+
+            if (board[row][col] == ' ') {
+                System.out.println("Промах");
+                board[row][col] = '-';
+            } else if (board[row][col] == '#') {
+                System.out.println("Попадание!");
+                board[row][col] = 'X';
+                shipsRemaining--;
+                if (shipsRemaining == 0) {
+                    System.out.println("Победа! Все корабли потоплены.");
+                }
+            } else {
+                System.out.println("Вы уже атаковали это место! Попробуйте другую клетку.");
+            }
+
+            printBoard(board);
+        }
+    }
+
+    public static void placeShips(char[][] board, int shipSize, String shipName) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Расставьте корабль " + shipName + " размером " + shipSize);
+        for (int i = 0; i < shipSize; i++) {
+            int row, col;
+            do {
+                System.out.println("Введите координаты клетки " + (i + 1) + ": ");
+                String input = scanner.nextLine();
+                char rowChar = input.charAt(0);
+                row = rowChar - 'A';
+                col = Integer.parseInt(input.substring(1)) - 1;
+            } while (board[row][col] != ' ');
+
+            board[row][col] = '#';
+        }
+    }
+
+    public static void printBoard(char[][] board) {
+        System.out.println("   1 2 3 4 5 6 7 8 9 10");
+        for (int i = 0; i < 10; i++) {
+            System.out.print((char) ('A' + i) + "  ");
+            for (int j = 0; j < 10; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
