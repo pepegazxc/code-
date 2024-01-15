@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Выбереите какую операцию вы хотите совершить:");
+        System.out.print("1 Сложение:");
+        System.out.println();
+        System.out.print("2 Умножение:");
+        System.out.println();
+        System.out.print("3 Вычитание:");
+        System.out.println();
+        System.out.print("4 Возведение в степень:");
+        System.out.println();
+        System.out.print("5 Деление:");
+        System.out.println();
+
+        int choice = scanner.nextInt();
+
+
+        System.out.print("Введите первое чиcло:");
+        double number1 = scanner.nextDouble();
+        System.out.println();
+        System.out.print("Введите второе число:");
+        double number2 = scanner.nextDouble();
+
+            double result = 0;
+            switch (choice) {
+                case 1:
+                    result = sloshenie(number1, number2);
+                    break;
+                case 2:
+                    result = ymnoshenie(number1, number2);
+                    break;
+                case 3:
+                    result = vuchitanie(number1, number2);
+                    break;
+                case 4:
+                    result = stepen(number1, number2);
+                    break;
+                case 5:
+                    if (number2 != 0) {
+                        result = delelie(number1, number2);
+                    } else {
+                        System.out.println("Делить на ноль нельзя, дуралей");
+                        return;
+
+                    }
+                    break;
+                default:
+                    System.out.println("Ты неправильно ввел, попробуй еще раз");
+                    return;
+
+
+        }
+        System.out.println("Ответ: " + result);
+
+    }
+
+
+    public static double sloshenie(double number1, double number2) {
+        return number1 + number2;
+
+    }
+
+    public static double ymnoshenie(double number1, double number2) {
+        return number1 * number2;
+
+    }
+
+    public static double vuchitanie(double number1, double number2) {
+        return number1 - number2;
+    }
+
+    public static double stepen(double number1, double number2) {
+        return Math.pow(number1,number2);
+    }
+
+    public static double delelie(double number1, double number2) {
+        return number1 / number2;
+    }
+
+}
